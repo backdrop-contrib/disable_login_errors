@@ -1,0 +1,4 @@
+name = Disable login errors
+description = Hide all the (helpful) error messages for failed logins.
+backdrop = 1.x
+type = module

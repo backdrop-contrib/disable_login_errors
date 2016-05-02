@@ -1,0 +1,35 @@
+<?<?php
+
+/**
+ * @file
+ * Disable errors on on the user login form.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function disable_login_errors_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_login':
+    case 'user_login_block':
+      $form['#validate'][] = 'disable_login_errors_validate';
+      break;
+  }
+}
+
+/**
+ * Implements hook_validate().
+ *
+ * Clears the message queue of errors after core login validation.
+ */
+function disable_login_errors_validate($form, &$form_state) {
+  // Resets the form error status so no form fields are highlighted in red.
+  $form_state['rebuild'] = TRUE;
+  form_clear_error();
+
+  // Removes "Sorry, unrecognized username or password. Have you forgotten your
+  // password?" and "The username $name has not been activated or is blocked.",
+  // and any other errors that might be helpful to an attacker it should not
+  // reset the attempts message because it is a warning, not an error.
+  backdrop_get_messages('error', TRUE);
+}
