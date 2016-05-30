@@ -43,8 +43,6 @@ class DisableLoginErrorsInterfaceTest extends BackdropWebTestCase {
     $this->backdropLoginLite($normal_user);
     $this->assertRaw(t('The username %name has not been activated or is blocked.', array('%name' => $normal_user->name)), t('Backdrop "...has not been activated or is blocked." login error message found.'));
 
-    module_disable(array('disable_login_errors'));
-
     // Unblock user.
     user_save($normal_user, array('status' => 1));
 
