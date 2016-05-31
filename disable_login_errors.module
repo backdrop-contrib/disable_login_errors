@@ -1,4 +1,4 @@
-<?<?php
+<?php
 
 /**
  * @file
@@ -25,22 +25,14 @@ function disable_login_errors_form_user_login_block_alter(&$form, &$form_state, 
  * Clears the message queue of errors after core login validation.
  */
 function disable_login_errors_validate($form, &$form_state) {
-  $messages = backdrop_get_messages('error', FALSE);
+  // Removes "Sorry, unrecognized username.", "Sorry, incorrect password."
+  // and "The username $name has not been activated or is blocked.",
+  // and any other login errors because they might be helpful to an attacker.
+  $error_messages = backdrop_get_messages('error', TRUE);
 
-  if (!empty($messages['error'])) {
-    $password_message = strpos($messages['error'], 'Have you forgotten your password');
-    $block_message = strpos($messages['error'], ' has not been activated or is blocked.');
-
-    if ($password_message !== FALSE || $block_message !== FALSE) {
-      // Resets the form error status so no form fields are highlighted in red.
-      $form_state['rebuild'] = TRUE;
-      form_clear_error();
-
-      // Removes "Sorry, unrecognized username or password. Have you forgotten your
-      // password?" and "The username $name has not been activated or is blocked.",
-      // and any other errors that might be helpful to an attacker it should not
-      // reset the attempts message because it is a warning, not an error.
-      backdrop_get_messages('error', TRUE);
-    }
+  if (!empty($error_messages)) {
+    // Resets the form error status so no form fields are highlighted in red.
+    $form_state['rebuild'] = TRUE;
+    form_clear_error();
   }
 }
