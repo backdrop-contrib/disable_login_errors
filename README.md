@@ -3,9 +3,8 @@ Disable login errors
 
 Prevent the display of all login error messages. A user attempting to login will
 not be aware if the account exists, an invalid user name or password has been
-submitted, or if the account is blocked. The core messages "Sorry, unrecognized
-username or password. Have you forgotten your password?" and "The username
-{username} has not been activated or is blocked." are also hidden.
+submitted, or if the account is blocked. Two of the messages which are hidden 
+are _Sorry, unrecognized username_ and _Sorry, incorrect password_.
 
 Current Maintainer
 ------------------
