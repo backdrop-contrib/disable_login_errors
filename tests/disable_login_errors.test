@@ -35,12 +35,12 @@ class DisableLoginErrorsInterfaceTest extends BackdropWebTestCase {
 
     module_disable(array('disable_login_errors'));
 
-    $this->backdropLoginLite($normal_user);
+    $this->backdropLogin($normal_user);
     $this->assertRaw(t('Sorry, incorrect password. <a href="@password">Have you forgotten your password?</a>', array('@password' => url('user/password', array('query' => array('name' => $normal_user->name))))), t('Backdrop "...Have you forgotten your password?" login error message found.'));
 
     // Block user.
     user_save($normal_user, array('status' => 0));
-    $this->backdropLoginLite($normal_user);
+    $this->backdropLogin($normal_user);
     $this->assertRaw(t('The username %name has not been activated or is blocked.', array('%name' => $normal_user->name)), t('Backdrop "...has not been activated or is blocked." login error message found.'));
 
     // Unblock user.
@@ -48,12 +48,12 @@ class DisableLoginErrorsInterfaceTest extends BackdropWebTestCase {
 
     module_enable(array('disable_login_errors'));
 
-    $this->backdropLoginLite($normal_user);
+    $this->backdropLogin($normal_user);
     $this->assertNoRaw(t('Sorry, unrecognized username or password. <a href="@password">Have you forgotten your password?</a>', array('@password' => url('user/password', array('query' => array('name' => $normal_user->name))))), t('Backdrop "...Have you forgotten your password?" login error message not found.'));
 
     // Block user.
     user_save($normal_user, array('status' => 0));
-    $this->backdropLoginLite($normal_user);
+    $this->backdropLogin($normal_user);
     $this->assertNoRaw(t('The username %name has not been activated or is blocked.', array('%name' => $normal_user->name)), t('Backdrop "...has not been activated or is blocked." login error message not found.'));
   }
 }
