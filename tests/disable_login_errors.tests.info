@@ -1,5 +1,0 @@
-[DisableLoginErrorsInterfaceTest]
-name = Disable login errors functionality
-description = Generate login errors and verify their absense.
-group = Disable login errors
-file = disable_login_errors.test
