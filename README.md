@@ -1,10 +1,11 @@
 Disable login errors
 ====================
 
-Prevent the display of all login error messages. A user attempting to login will
-not be aware if the account exists, an invalid user name or password has been
-submitted, or if the account is blocked. Some of the messages which are hidden
-include:
+Prevent user enumeration by blocking the display of all login error messages.
+A user attempting to login will not be aware if the account exists, an invalid
+user name or password has been submitted, or if the account is blocked.
+
+Some of the messages which are hidden include:
 
 * _Sorry, unrecognized username_
 * _Sorry, incorrect password_
