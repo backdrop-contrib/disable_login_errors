@@ -22,6 +22,11 @@ cases found in the OWASP Testing Guide Project,
 Testing for User Enumeration and Guessable User Account
 ([OWASP-AT-002](https://www.owasp.org/index.php/Testing_for_User_Enumeration_and_Guessable_User_Account_(OWASP-AT-002))).
 
+Usage
+-----
+
+Enable the module for full functionality. There is no configuration.
+
 Current Maintainer
 ------------------
 
