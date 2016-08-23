@@ -13,7 +13,8 @@ Some of the messages which are hidden include:
 
 This module mitigates a vector to collect a set of valid usernames by interacting with the login forms. It hampers attempts to use brute force testing, in which the tester verifies if, given a valid username, it is possible to find the corresponding password.
 
-Use of this module is meant to toughen against the username enumeration test cases found in the OWASP Testing Guide Project, Testing for User Enumeration and Guessable User Account ([OWASP-AT-002](https://www.owasp.org/index.php/Testing_for_User_Enumeration_and_Guessable_User_Account_(OWASP-AT-002))).
+Use of this module is meant to toughen against the username enumeration test cases found in the OWASP Testing Guide Project, Testing for User Enumeration and Guessable User Account ([OWASP-AT-002](https://www.owasp.org/index.php/Testing_for_User_Enumeration_and_Guessable_User_Account_(OWASP-AT-002))). It
+provides similar functionality to the [Username Enumeration Prevention](https://www.drupal.org/project/username_enumeration_prevention) module in Drupal.
 
 Usage
 -----
