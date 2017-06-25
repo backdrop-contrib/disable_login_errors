@@ -24,7 +24,7 @@ Enable the module for full functionality. There is no configuration.
 Current Maintainer
 ------------------
 
-- David Norman (https://github.com/deekayen)
+- None
 
 Credits
 -------
